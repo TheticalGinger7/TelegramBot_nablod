@@ -15,9 +15,10 @@ def trash_check(trash):
       trash_default = True
       break
   for j in range(len(list_conversion)):
-    if(list_trash[j] == trash):
+    if(list_conversion[j] == trash):
       conversion_default = True
       break
+    
   if trash_default == False and conversion_default == False:
     trash = None
   elif trash_default == True and conversion_default == False:
@@ -64,7 +65,7 @@ def sorting(message):
       trash += message.text.split()[i]
   if trash_check(trash) == False:
     bot.reply_to(message,"Этот мусор на переработку")
-  elif trash_check(trash) == False:
+  elif trash_check(trash) == True:
     bot.reply_to(message,"Этот мусор в общую мусорку(мусорное ведро)")
   elif trash_check(trash) == None:
     bot.reply_to(message,"Простите но такого предмета я не нашёл")
