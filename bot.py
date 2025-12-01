@@ -9,7 +9,7 @@ list_trash = ["грязные бумажные стаканчики", "влаж�
 def trash_check(trash):
   conversion_default = False
   trash_default = False
-  trash = False
+  trash_ans = None
   for i in range(len(list_trash)):
     if(list_trash[i] == trash):
       trash_default = True
@@ -19,13 +19,13 @@ def trash_check(trash):
       conversion_default = True
       break
     
+  if trash_default == True:
+    trash_ans = True
+  if trash_default == False:
+    trash_ans = False
   if trash_default == False and conversion_default == False:
-    trash = None
-  elif trash_default == True and conversion_default == False:
-    trash = True
-  elif trash_default == False and conversion_default == True:
-    trash = False
-  return trash
+    trash_ans = None
+  return trash_ans
       
   
 def get_duck_image_url():    
